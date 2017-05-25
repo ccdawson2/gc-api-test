@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Google Cloud squares API Test</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+  <!-- JS -->
+  <script src="node_modules/vue/dist/vue.js"></script>
+  <script src="node_modules/vue-resource/dist/vue-resource.js"></script>
+  
+</head>
+
+<body>
+  <!-- navigation bar -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <a class="navbar-brand"><i "C:\Users\ccdawson\gc-api-test\images\glyphicons-square.png"></i> Google Cloud squares API Test</a>
+    </div>
+  </nav>
+
+  <!-- main body of our application -->
+  <div class="container" id="divSquares">
+
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3>Add an Square</h3>
+        </div>
+        <div class="panel-body">
+
+           <div class="form-group">
+             <input class="form-control" placeholder="Square Id"         v-model="square.squareId">
+             <input class="form-control" placeholder="Owner Id"          v-model="square.ownerId">
+             <input class="form-control" placeholder="X Coord"           v-model="square.xCoord">
+             <input class="form-control" placeholder="Y Coord"           v-model="square.yCoord">
+             <input class="form-control" placeholder="Description"       v-model="square.desc">
+             <input class="form-control" placeholder="Short Description" v-model="square.shortDesc">
+           </div>
+           <button class="btn btn-primary" v-on:click="addSquare">Submit</button>
+
+        </div>
+
+      </div>
+    </div>
+
+   <div class="col-sm-6">
+      <div class="list-group">
+
+	    <a href="#" class="list-group-item" v-for="(square, index) in squares">
+            <h4 class="list-group-item-heading">
+              squareId: {{square.squareId}} {{square.shortDesc}} {{square.desc}} 
+			  xCoord: {{square.xCoord}} yCoord: {{square.yCoord}}
+			  {{square.ownerId}} {{square.image}}
+            </h4>
+			<button class="btn btn-xs btn-danger" v-on:click="deleteSquare(index)">Delete</button>
+          </a>
+
+	  </div>
+    </div>
+
+  </div>
+  
+  <script src="app\app.js"></script>
+
+</body>
+</html>
